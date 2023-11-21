@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{DFAD5F98-4976-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{F2767CBA-ACF1-4B8C-BC0E-C71735EAB93C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DL", "DL", "{6A1DE0F3-2BE8-4AB1-A918-725F5D33F20A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataLayerService", "DataLayerService", "{6A1DE0F3-2BE8-4AB1-A918-725F5D33F20A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.DL", "FlexibleAutomationTool.DL\FlexibleAutomationTool.DL.csproj", "{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8}"
 EndProject
@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.Mvc"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C1AB3A91-70C0-40D6-85EE-A992A2A80B83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

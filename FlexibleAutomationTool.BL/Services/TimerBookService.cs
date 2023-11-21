@@ -3,7 +3,7 @@ using FlexibleAutomationTool.DL.Repository;
 
 namespace FlexibleAutomationTool.BL.Services
 {
-    internal class TimerBookService
+    public class TimerBookService
     {
         private Timer _timer;
         private IRepository<Book> _books;

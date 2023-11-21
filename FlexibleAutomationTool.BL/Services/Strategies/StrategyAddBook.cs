@@ -14,9 +14,9 @@ namespace FlexibleAutomationTool.BL.Services.Strategies
         public void Algorithm()
         {
             var book = _parseHtmlService.ParseHtmlToItem();
-            if (!_parseHtmlService.IsInRepository(book))
+            if (!_parseHtmlService.IsInRepository(null))
             {
-                _parseHtmlService.AddItem(book);
+                _parseHtmlService.AddItem(null);
             }
         }
     }

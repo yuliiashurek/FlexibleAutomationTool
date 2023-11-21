@@ -1,19 +1,22 @@
 ﻿using FlexibleAutomationTool.DL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FlexibleAutomationTool.BL.AutomationTasks.Printers
 {
-    public class HtmlPrinter : IPrint
+    public class TextPrinter : IPrint
     {
         private Book _book;
-        public HtmlPrinter(Book book) {
+        public TextPrinter(Book book)
+        {
             _book = book;
         }
         public string Print()
         {
-            return $"<h2>{_book.Title} by {_book.Author}</h2>\n<p>{_book.Description}</p>";
+            return $"NEW book : {_book.Title} by {_book.Author}";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FlexibleAutomationTool.BL.AutomationTasks.Printers
 {
     public class PdfPrinter : IPrint
     {
-        public string Print(Book book)
+        public string Print()
         {
             throw new NotImplementedException();
         }

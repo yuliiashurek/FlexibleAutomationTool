@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace FlexibleAutomationTool.BL.IServices
 {
-    internal interface IParseHtmlService<T>
+    public interface IParseHtmlService<T>
     {
 
-        public T ParseHtmlToItem();
+        public Task ParseHtmlToItem(HtmlTagsClass model = null);
         public bool IsInRepository(T item);
         public void AddItem(T item);
     }
