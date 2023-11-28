@@ -1,10 +1,6 @@
-﻿using FlexibleAutomationTool.BL.AutomationTasks.TasksFactories;
-using FlexibleAutomationTool.BL.AutomationTasks;
-using FlexibleAutomationTool.BL.Facade;
-using FlexibleAutomationTool.DL.Context;
-using FlexibleAutomationTool.DL.Models;
+﻿using RuleInterpretatorService.Intefaces;
 
-namespace FlexibleAutomationTool.BL.Interpretator
+namespace RuleInterpretatorService.Services
 {
     public class CheckTimerExpressions : IExpressions
     {

@@ -29,7 +29,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuleAutomationCommandServic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RuleInterpretatorService", "RuleInterpretatorService", "{2ECC9EB1-7ADC-40BF-9F11-50531E3E6CD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleInterpretatorService", "RuleInterpretatorService\RuleInterpretatorService.csproj", "{10FC1125-7C39-4B33-976F-E7F931904B71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuleInterpretatorService", "RuleInterpretatorService\RuleInterpretatorService.csproj", "{10FC1125-7C39-4B33-976F-E7F931904B71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationFactoryService", "NotificationFactoryService", "{A4225262-8089-428C-B6A0-5F11B57B19A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationFactoryService", "NotificationFactoryService\NotificationFactoryService.csproj", "{17FD9EEB-BC10-437E-994E-F21FA0E86C66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestCommunicationService", "RequestCommunicationService", "{A14CE196-7383-4A53-84C5-FB51839B4FC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestCommunicationService", "RequestCommunicationService\RequestCommunicationService.csproj", "{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutomativeTaskNotificationFacadeService", "AutomativeTaskNotificationFacadeService", "{2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomativeTaskNotificationFacadeService", "AutomativeTaskNotificationFacadeService\AutomativeTaskNotificationFacadeService.csproj", "{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +77,18 @@ Global
 		{10FC1125-7C39-4B33-976F-E7F931904B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10FC1125-7C39-4B33-976F-E7F931904B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10FC1125-7C39-4B33-976F-E7F931904B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FD9EEB-BC10-437E-994E-F21FA0E86C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FD9EEB-BC10-437E-994E-F21FA0E86C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FD9EEB-BC10-437E-994E-F21FA0E86C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FD9EEB-BC10-437E-994E-F21FA0E86C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +104,12 @@ Global
 		{71FFE348-EA7A-4ACF-91D4-2278187FFBCC} = {A25C8901-7B8E-44A8-834B-5859E4DB91A9}
 		{2ECC9EB1-7ADC-40BF-9F11-50531E3E6CD3} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
 		{10FC1125-7C39-4B33-976F-E7F931904B71} = {2ECC9EB1-7ADC-40BF-9F11-50531E3E6CD3}
+		{A4225262-8089-428C-B6A0-5F11B57B19A4} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
+		{17FD9EEB-BC10-437E-994E-F21FA0E86C66} = {A4225262-8089-428C-B6A0-5F11B57B19A4}
+		{A14CE196-7383-4A53-84C5-FB51839B4FC0} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
+		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB} = {A14CE196-7383-4A53-84C5-FB51839B4FC0}
+		{2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
+		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5} = {2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF9EAAF8-943F-488B-B416-6C0AE6995AC6}

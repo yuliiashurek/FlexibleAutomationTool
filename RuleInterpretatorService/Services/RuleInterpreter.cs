@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RuleInterpretatorService.Intefaces;
 
-namespace FlexibleAutomationTool.BL.Interpretator
+namespace RuleInterpretatorService.Services
 {
     public class RuleInterpreter
     {

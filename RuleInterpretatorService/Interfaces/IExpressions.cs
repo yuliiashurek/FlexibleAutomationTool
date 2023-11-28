@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlexibleAutomationTool.BL.Interpretator
+﻿using RuleInterpretatorService.Services;
+using System;
+namespace RuleInterpretatorService.Intefaces
 {
     public interface IExpressions
     {

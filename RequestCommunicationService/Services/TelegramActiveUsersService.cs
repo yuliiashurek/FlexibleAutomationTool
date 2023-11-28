@@ -1,7 +1,7 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
 
-namespace RuleInterpretatorService.Services
+namespace RequestCommunicationService.Services
 {
     public class TelegramActiveUsersService
     {
