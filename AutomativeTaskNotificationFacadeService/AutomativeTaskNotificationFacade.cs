@@ -1,11 +1,11 @@
 ﻿namespace AutomativeTaskNotificationFacadeService
 {
-    public class AutomativeTaskMailing
+    public class AutomativeTaskNotificationFacade
     {
         FlexibleAutomationToolContext _flexibleAutomationToolContext;
         private string _recepient;
 
-        public AutomativeTaskMailing(FlexibleAutomationToolContext flexibleAutomationToolContext, string recepient= "juliysik@gmail.com")
+        public AutomativeTaskNotificationFacade(FlexibleAutomationToolContext flexibleAutomationToolContext, string recepient= "juliysik@gmail.com")
         {
             _flexibleAutomationToolContext = flexibleAutomationToolContext;
             _recepient = recepient;
