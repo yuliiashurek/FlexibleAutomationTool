@@ -8,39 +8,39 @@ using System.Threading.Tasks;
 
 namespace FlexibleAutomationTool.DL.Repository
 {
-    internal class RuleRepository : IRepository<Rule>
+    public class RuleRepository : IRepository<Rule>
     {
         private FlexibleAutomationToolContext _context;
-        private List<Rule> _rules;
 
         public RuleRepository(FlexibleAutomationToolContext context)
         {
             _context = context;
-            _rules = _context.Rules.ToList();
         }
         public void Create(Rule rule)
         {
-            _rules.Add(rule);
+            _context.Rules.Add(rule);
         }
 
         public void Delete(int id)
         {
-            _rules.RemoveAll(item => item.Id == id);
+            var rule = _context.Rules.FirstOrDefault<Rule>(rule => rule.Id == id);
+            _context.Rules.Remove(rule);
         }
 
-        public void Delete(Rule item)
+        public void Delete(Rule rule)
         {
-            _rules.Remove(item);
+            _context.Rules.Remove(rule);
         }
 
+        //todo add find by author and title
         public Rule? Find(int id)
         {
-            return _rules.FirstOrDefault(item => item.Id == id);
+            return _context.Rules.FirstOrDefault<Rule>(rule => rule.Id == id);
         }
 
         public IEnumerable<Rule> GetAll()
         {
-            return _rules;
+            return _context.Rules.ToList();
         }
 
         public void Save()

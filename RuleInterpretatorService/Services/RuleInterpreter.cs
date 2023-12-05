@@ -1,16 +1,16 @@
-﻿using RuleInterpretatorService.Intefaces;
+﻿using RuleInterpretatorService.Interfaces;
 
 namespace RuleInterpretatorService.Services
 {
-    public class RuleInterpreter
+    public class RuleInterpreter : IInterpretator
     {
         private readonly List<IExpressions> _expressions;
         private readonly Context _context;
         public RuleInterpreter(Context context)
         {
             _expressions = new List<IExpressions>() ;
-            _expressions.Add(new CheckTimerExpressions());
-            _expressions.Add(new CheckActiveUsersExpression());
+            _expressions.Add(new EmailExpression());
+            _expressions.Add(new TelegramExpression());
             _context = context;
         }
 

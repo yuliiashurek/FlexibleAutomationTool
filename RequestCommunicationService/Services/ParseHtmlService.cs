@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿using FlexibleAutomationTool.DL.Models;
+using FlexibleAutomationTool.DL.Repository;
+using HtmlAgilityPack;
 using RequestCommunicationService.Interface;
 
 namespace RequestCommunicationService.Services
@@ -7,8 +9,6 @@ namespace RequestCommunicationService.Services
     {
         private readonly string _url;
         private readonly IRepository<Book> _books;
-        public delegate void newBookDelegate(Book book);
-        public event newBookDelegate? SendEmailEvent;
 
         public ParseHtmlService(IRepository<Book> books, string url = "https://book-ye.com.ua/")
         {
@@ -16,22 +16,23 @@ namespace RequestCommunicationService.Services
             _books = books;
         }
 
-        public bool IsInRepository(Book book)
-        {
-            return _books.Find(book.Id) != null;
-        }
+        //public bool IsInRepository(Book book)
+        //{
+        //    return _books.Find(book.Id) != null;
+        //}
 
         public void AddItem(Book book)
         {
             _books.Create(book);
         }
 
-        public async Task ParseHtmlToItem(HtmlTagsClass model = null)
+        public async Task<List<Book>> ParseHtmlToItem(HtmlTagsClass model = null)
         {
             if (model == null)
             {
                 model = new HtmlTagsClass();
             }
+            List<Book> newBooks = new List<Book>();
             using (HttpClient httpClient = new HttpClient())
             {
                 string htmlContent = await httpClient.GetStringAsync(_url);
@@ -55,13 +56,14 @@ namespace RequestCommunicationService.Services
                             {
                                 var bb = new Book() { Title = title, Author = author };
                                 _books.Create(bb);
-                                SendEmailEvent?.Invoke(bb);
+                                newBooks.Add(bb);
                             }
                         }
                     }
                     _books.Save();
                 }
             }
+            return newBooks;
         }
     }
 }

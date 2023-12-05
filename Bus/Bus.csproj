@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Telegram.Bot" Version="19.0.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlexibleAutomationTool.DL\FlexibleAutomationTool.DL.csproj" />
+    <ProjectReference Include="..\RepositoryCommandService\RepositoryCommandService.csproj" />
   </ItemGroup>
 
 </Project>

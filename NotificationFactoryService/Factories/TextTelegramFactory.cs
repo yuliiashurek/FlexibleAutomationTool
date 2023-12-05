@@ -1,4 +1,5 @@
-﻿using NotificationFactoryService.Printers;
+﻿using FlexibleAutomationTool.DL.Models;
+using NotificationFactoryService.Printers;
 using NotificationFactoryService.Senders;
 
 namespace NotificationFactoryService.Factories
@@ -12,9 +13,9 @@ namespace NotificationFactoryService.Factories
             _recepient = recipient;
         }
 
-        public override IPrint CreatePrinter(Book book)
+        public override IPrint CreatePrinter(IEnumerable<Book> books)
         {
-            return new TextPrinter(book);
+            return new TextPrinter(books);
         }
 
         public override ISender CreateSender()

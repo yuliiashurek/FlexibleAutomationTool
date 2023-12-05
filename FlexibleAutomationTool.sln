@@ -41,7 +41,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestCommunicationService
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutomativeTaskNotificationFacadeService", "AutomativeTaskNotificationFacadeService", "{2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomativeTaskNotificationFacadeService", "AutomativeTaskNotificationFacadeService\AutomativeTaskNotificationFacadeService.csproj", "{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNotificationFacadeService", "AutomativeTaskNotificationFacadeService\ScheduleNotificationFacadeService.csproj", "{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{251D192B-815A-45E3-801A-DE2C0DD38E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC", "IoC\IoC.csproj", "{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bus", "Bus", "{16A92E79-2437-4723-A89F-60C00BC3C388}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bus", "Bus\Bus.csproj", "{B6760649-7EFB-4A90-A699-21F219ECA795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +97,14 @@ Global
 		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6760649-7EFB-4A90-A699-21F219ECA795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6760649-7EFB-4A90-A699-21F219ECA795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6760649-7EFB-4A90-A699-21F219ECA795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6760649-7EFB-4A90-A699-21F219ECA795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +126,8 @@ Global
 		{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB} = {A14CE196-7383-4A53-84C5-FB51839B4FC0}
 		{2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
 		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5} = {2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}
+		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549} = {251D192B-815A-45E3-801A-DE2C0DD38E10}
+		{B6760649-7EFB-4A90-A699-21F219ECA795} = {16A92E79-2437-4723-A89F-60C00BC3C388}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF9EAAF8-943F-488B-B416-6C0AE6995AC6}

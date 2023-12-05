@@ -1,6 +1,6 @@
 ﻿using RuleInterpretatorService.Services;
 using System;
-namespace RuleInterpretatorService.Intefaces
+namespace RuleInterpretatorService.Interfaces
 {
     public interface IExpressions
     {

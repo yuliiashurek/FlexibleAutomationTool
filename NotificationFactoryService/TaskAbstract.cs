@@ -1,4 +1,5 @@
-﻿using NotificationFactoryService.Printers;
+﻿using FlexibleAutomationTool.DL.Models;
+using NotificationFactoryService.Printers;
 using NotificationFactoryService.Senders;
 
 namespace NotificationFactoryService
@@ -12,7 +13,7 @@ namespace NotificationFactoryService
             _recipient = recipient;
         }
 
-        public abstract IPrint CreatePrinter(Book book);
+        public abstract IPrint CreatePrinter(IEnumerable<Book> book);
         public abstract ISender CreateSender();
     }
 }

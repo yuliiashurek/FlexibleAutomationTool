@@ -9,7 +9,8 @@ namespace FlexibleAutomationTool.DL.Models
     public class Rule : Entity
     {
         public string Name { get; set; }
-        public string Condition { get; set; }
+        public DateTime ConditionDate { get; set; }
+        public string ConditionMessanger { get; set; }
         public string Action { get; set; }
     }
 }

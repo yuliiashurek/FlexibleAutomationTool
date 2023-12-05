@@ -5,7 +5,6 @@ using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.BL.IServices;
 using FlexibleAutomationTool.BL.AutomationTasks.TasksFactories;
 using FlexibleAutomationTool.BL.AutomationTasks;
-using FlexibleAutomationTool.BL.Facade;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Net;
@@ -22,24 +21,3 @@ internal class Program
         //Console.ReadKey();
     }
 }
-
-//public class botTest
-//{
-//    private TelegramBotClient _tgBotClient;
-//    private long _chatId;
-//    public botTest()
-//    {
-//        var botToken = "6902881493:AAFNsg53wistwqVRqZPLw1JNNA5nkHqbjoo";
-//        _chatId = -4003183963;
-//        _tgBotClient = new TelegramBotClient(botToken);
-//    }
-
-    //public async Task SendAsync()
-    //{
-    //    Chat chat = await _tgBotClient.GetChatAsync(456619991);
-    //    //var user = await _tgBotClient.GetChatMemberAsync(_chatId, 456619991);
-    //    //var status = user.Status;
-    //    var a = chat.ActiveUsernames.FirstOrDefault();
-    //    await _tgBotClient.SendTextMessageAsync(_chatId, $"User status: {a}");
-    //}
-//}

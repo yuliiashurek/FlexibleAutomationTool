@@ -1,19 +1,27 @@
-﻿namespace RuleInterpretatorService.Services
+﻿using FlexibleAutomationTool.DL.Models;
+using RequestCommunicationService.Services;
+using System.Data;
+
+namespace RuleInterpretatorService.Services
 {
     public class Context
     {
-        public DateTime Time { get; set; } = DateTime.Now.AddMinutes(-3);
-        private bool isActive;
-        public bool usersAreActive
-        {
-            get => new TelegramActiveUsersService().isActiveUsers().Result;
-            private set
-            {
-                var tg = new TelegramActiveUsersService();
-                isActive = tg.isActiveUsers().Result;
-            }
-        }
-        //public string Recipient { get; set; } = "juliysik@gmail.com";
-        public string Recipient { get; set; } 
+        public DateTime DateAction { get; set; }
+        public string WhereToSend { get; set; }
+        public IEnumerable<Book> Books { get; set; }
+
+        //public DateTime Time { get; set; } = DateTime.Now.AddMinutes(-3);
+        ////public Action ToDo {  get; set; } 
+        ////private bool isActive;
+        //public bool usersAreActive
+        //{
+        //    get => _telegramActiveUsersService.isActiveUsers().Result;
+        //    //private set
+        //    //{
+        //    //    isActive = _telegramActiveUsersService.isActiveUsers().Result;
+        //    //}
+        //}
+        ////public string Recipient { get; set; } = "juliysik@gmail.com";
+        //public string Recipient { get; set; } 
     }
 }

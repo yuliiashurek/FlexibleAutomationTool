@@ -21,7 +21,8 @@ namespace RepositoryCommandService.CommandHandlers
                 var rule = new Rule()
                 {
                     Name = request.Name,
-                    Condition = request.Condition,
+                    ConditionDate = request.ConditionDate,
+                    ConditionMessanger = request.ConditionMessanger,
                     Action = request.Action,
                 };
 

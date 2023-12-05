@@ -12,36 +12,36 @@ namespace FlexibleAutomationTool.DL.Repository
     public class ScheduleRepository : IRepository<Schedule>
     {
         private FlexibleAutomationToolContext _context;
-        private List<Schedule> _schedules;
 
         public ScheduleRepository(FlexibleAutomationToolContext context)
         {
             _context = context;
-            _schedules = _context.Schedules.ToList();
         }
-        public void Create(Schedule item)
+        public void Create(Schedule schedule)
         {
-            _schedules.Add(item);
+            _context.Schedules.Add(schedule);
         }
 
         public void Delete(int id)
         {
-            _schedules.RemoveAll(item => item.Id == id);
+            var schedule = _context.Schedules.FirstOrDefault<Schedule>(schedule => schedule.Id == id);
+            _context.Schedules.Remove(schedule);
         }
 
         public void Delete(Schedule item)
         {
-            _schedules.Remove(item);
+            _context.Schedules.Remove(item);
         }
 
+        //todo add find by author and title
         public Schedule? Find(int id)
         {
-            return _schedules.FirstOrDefault(s => s.Id == id);
+            return _context.Schedules.FirstOrDefault<Schedule>(schedule => schedule.Id == id);
         }
 
         public IEnumerable<Schedule> GetAll()
         {
-            return _schedules;
+            return _context.Schedules.ToList();
         }
 
         public void Save()
@@ -49,10 +49,11 @@ namespace FlexibleAutomationTool.DL.Repository
             _context.SaveChanges();
         }
 
-        public void Update(Schedule item)
+        public void Update(Schedule schedule)
         {
-            Delete(item.Id);
-            Create(item);
+            Delete(schedule.Id);
+            Create(schedule);
         }
+
     }
 }

@@ -1,15 +1,26 @@
-﻿namespace NotificationFactoryService.Printers
+﻿using FlexibleAutomationTool.DL.Models;
+using System.Text;
+
+namespace NotificationFactoryService.Printers
 {
     public class TextPrinter : IPrint
     {
-        private Book _book;
-        public TextPrinter(Book book)
+        private IEnumerable<Book> _books;
+        public TextPrinter(IEnumerable<Book> books)
         {
-            _book = book;
+            _books = books;
         }
         public string Print()
         {
-            return $"NEW book : {_book.Title} by {_book.Author}";
+            StringBuilder builder = new StringBuilder();
+
+            foreach (var book in _books)
+            {
+                builder.AppendLine($"NEW book : {book.Title} by {book.Author}");
+                builder.AppendLine();
+            }
+
+            return builder.ToString();
         }
     }
 }

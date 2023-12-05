@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FlexibleAutomationTool.DL\FlexibleAutomationTool.DL.csproj" />
     <ProjectReference Include="..\NotificationFactoryService\NotificationFactoryService.csproj" />
     <ProjectReference Include="..\RequestCommunicationService\RequestCommunicationService.csproj" />
+    <ProjectReference Include="..\RuleInterpretatorService\RuleInterpretatorService.csproj" />
   </ItemGroup>
 
 </Project>

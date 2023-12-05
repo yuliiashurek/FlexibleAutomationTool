@@ -10,9 +10,10 @@ namespace RepositoryCommandService.Commands
     {
         public CreateRuleCommmand(string name, string action, string condition)
         {
-            Name = name;
-            Action = action;
-            Condition = condition;
+            Name = Name;
+            ConditionDate = ConditionDate;
+            ConditionMessanger = ConditionMessanger;
+            Action = Action;
         }
     }
 }
