@@ -5,7 +5,7 @@ using RepositoryCommandService.Commands;
 
 namespace RepositoryCommandService.CommandHandlers
 {
-    public class RuleCommandHandler : IRequestHandler<RuleCommand, bool>
+    public class RuleCommandHandler : IRequestHandler<CreateRuleCommmand, bool>
     {
         private readonly IRepository<Rule> _ruleRepository;
 
@@ -14,7 +14,7 @@ namespace RepositoryCommandService.CommandHandlers
             _ruleRepository = ruleRepository;
         }
 
-        public Task<bool> Handle(RuleCommand request, CancellationToken cancellationToken)
+        public Task<bool> Handle(CreateRuleCommmand request, CancellationToken cancellationToken)
         {
             try
             {

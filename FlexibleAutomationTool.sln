@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{DFAD5F98-4976-43DD-A1A1-7CD2BA4D3E4E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{F2767CBA-ACF1-4B8C-BC0E-C71735EAB93C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataServices", "DataServices", "{6A1DE0F3-2BE8-4AB1-A918-725F5D33F20A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.DL", "FlexibleAutomationTool.DL\FlexibleAutomationTool.DL.csproj", "{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.BL", "FlexibleAutomationTool.BL\FlexibleAutomationTool.BL.csproj", "{DF90A05F-2703-4A94-A808-164D9718FFCE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.Mvc", "FlexibleAutomationTool.Mvc\FlexibleAutomationTool.Mvc.csproj", "{574D6DD7-5547-42C8-B773-E8A2BDB60436}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C1AB3A91-70C0-40D6-85EE-A992A2A80B83}"
 EndProject
@@ -33,23 +27,31 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuleInterpretatorService", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationFactoryService", "NotificationFactoryService", "{A4225262-8089-428C-B6A0-5F11B57B19A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationFactoryService", "NotificationFactoryService\NotificationFactoryService.csproj", "{17FD9EEB-BC10-437E-994E-F21FA0E86C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationFactoryService", "NotificationFactoryService\NotificationFactoryService.csproj", "{17FD9EEB-BC10-437E-994E-F21FA0E86C66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestCommunicationService", "RequestCommunicationService", "{A14CE196-7383-4A53-84C5-FB51839B4FC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestCommunicationService", "RequestCommunicationService\RequestCommunicationService.csproj", "{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestCommunicationService", "RequestCommunicationService\RequestCommunicationService.csproj", "{D21C80DD-F4BA-42BF-B57B-2E0429F60FFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutomativeTaskNotificationFacadeService", "AutomativeTaskNotificationFacadeService", "{2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNotificationFacadeService", "AutomativeTaskNotificationFacadeService\ScheduleNotificationFacadeService.csproj", "{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNotificationFacadeService", "AutomativeTaskNotificationFacadeService\ScheduleNotificationFacadeService.csproj", "{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{251D192B-815A-45E3-801A-DE2C0DD38E10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC", "IoC\IoC.csproj", "{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoC", "IoC\IoC.csproj", "{68014B43-BA84-4D2E-8E2F-5A2F4F78A549}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bus", "Bus", "{16A92E79-2437-4723-A89F-60C00BC3C388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bus", "Bus\Bus.csproj", "{B6760649-7EFB-4A90-A699-21F219ECA795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bus", "Bus\Bus.csproj", "{B6760649-7EFB-4A90-A699-21F219ECA795}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlexibleAutomationTool.WebMVC", "FlexibleAutomationTool.WebMVC\FlexibleAutomationTool.WebMVC.csproj", "{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexibleAutomationTool.Desktop", "FlexibleAutomationTool.Desktop\FlexibleAutomationTool.Desktop.csproj", "{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MacrosService", "MacrosService", "{276A89EA-1621-4528-AD91-DE5E4F39B02A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacrosService", "MacrosService\MacrosService.csproj", "{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,14 +63,6 @@ Global
 		{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF90A05F-2703-4A94-A808-164D9718FFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF90A05F-2703-4A94-A808-164D9718FFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF90A05F-2703-4A94-A808-164D9718FFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF90A05F-2703-4A94-A808-164D9718FFCE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{574D6DD7-5547-42C8-B773-E8A2BDB60436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{574D6DD7-5547-42C8-B773-E8A2BDB60436}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{574D6DD7-5547-42C8-B773-E8A2BDB60436}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{574D6DD7-5547-42C8-B773-E8A2BDB60436}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -105,6 +99,18 @@ Global
 		{B6760649-7EFB-4A90-A699-21F219ECA795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6760649-7EFB-4A90-A699-21F219ECA795}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6760649-7EFB-4A90-A699-21F219ECA795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,8 +118,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6A1DE0F3-2BE8-4AB1-A918-725F5D33F20A} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
 		{ECB818E5-26BF-4BFD-8EFB-7F2E2D48D8E8} = {6A1DE0F3-2BE8-4AB1-A918-725F5D33F20A}
-		{DF90A05F-2703-4A94-A808-164D9718FFCE} = {DFAD5F98-4976-43DD-A1A1-7CD2BA4D3E4E}
-		{574D6DD7-5547-42C8-B773-E8A2BDB60436} = {F2767CBA-ACF1-4B8C-BC0E-C71735EAB93C}
 		{3C9ABCFD-29F4-49F4-AC6E-AB75A4357448} = {C1AB3A91-70C0-40D6-85EE-A992A2A80B83}
 		{A25C8901-7B8E-44A8-834B-5859E4DB91A9} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
 		{1B2DC9F9-73D5-4EB4-AA12-43023EE28651} = {A25C8901-7B8E-44A8-834B-5859E4DB91A9}
@@ -128,6 +132,10 @@ Global
 		{7C89F1D7-351A-475C-80C7-1ED8A5EA71C5} = {2A0EEA7A-40EF-4689-BF5E-D3C5AECB5EFD}
 		{68014B43-BA84-4D2E-8E2F-5A2F4F78A549} = {251D192B-815A-45E3-801A-DE2C0DD38E10}
 		{B6760649-7EFB-4A90-A699-21F219ECA795} = {16A92E79-2437-4723-A89F-60C00BC3C388}
+		{1F2336F4-AB3C-4388-B2BB-F296EB2D4B7C} = {F2767CBA-ACF1-4B8C-BC0E-C71735EAB93C}
+		{51BDC57E-6B64-4CD5-AC7E-09AEABF1C346} = {F2767CBA-ACF1-4B8C-BC0E-C71735EAB93C}
+		{276A89EA-1621-4528-AD91-DE5E4F39B02A} = {E4BCAB5D-6648-438C-B6DD-F2A6E41CAC7C}
+		{BF3DDB28-6273-4D64-89EC-DED3EFCDB34C} = {276A89EA-1621-4528-AD91-DE5E4F39B02A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF9EAAF8-943F-488B-B416-6C0AE6995AC6}

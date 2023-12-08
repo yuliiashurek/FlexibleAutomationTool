@@ -19,10 +19,14 @@ namespace NotificationFactoryService.Senders
 
         public void Send(IPrint printItem)
         {
+            if (string.IsNullOrEmpty(printItem.Print()))
+            {
+                return;
+            }
             MailMessage mail = new MailMessage
             {
                 From = new MailAddress(_senderEmail),
-                Subject = "Subject of your email",
+                Subject = "CheckOut New Books",
                 Body = printItem.Print(),
                 IsBodyHtml = true, // Set this to true if your email contains HTML content
             };

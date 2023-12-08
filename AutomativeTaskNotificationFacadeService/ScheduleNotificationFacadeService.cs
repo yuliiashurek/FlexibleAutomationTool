@@ -15,35 +15,27 @@ namespace AutomativeTaskNotificationFacadeService
 
         public ScheduleNotificationFacadeService(IRepository<Book> books, IRepository<Rule> rules)
         {
-            //TimerTaskAsync2();
             var deltaTime = 20000;
-          // _timer = new Timer( new TimerCallback(async state => await TimerTaskAsync2(),  null, 1000, deltaTime));
             _bookRepository = books;
             _ruleRepository = rules;
+            _timer = new System.Timers.Timer();
+            _timer.Elapsed += async (sender, e) =>
+            {
+                await TimerTaskAsync();
+            };
+            _timer.Interval = 10000; 
+            _timer.Start();
         }
 
-        //public void SetTimer()
-        //{
-        //    _timer = new System.Timers.Timer(2000);
-        //    _timer.Elapsed += TimerTaskAsync;
-        //    _timer.AutoReset = true;
-        //    _timer.Enabled = true;
-        //}
-
-        //private void TimerTaskAsync(object timerState)
-        //{
-        //    TimerTaskAsync2(timerState);
-        //}
-
-        private async Task TimerTaskAsync2()
+        public async Task TimerTaskAsync()
         {
-            ParseHtmlService parser = new ParseHtmlService(_bookRepository);
-            var contextList = CreateContext(await parser.ParseHtmlToItem());
-            foreach (var context in contextList)
-            {
-                var interpretator = new RuleInterpreter(context);
-                await interpretator.InterpretRules();
-            }
+             ParseHtmlService parser = new ParseHtmlService(_bookRepository);
+             var contextList = CreateContext(await parser.ParseHtmlToItem());
+             foreach (var context in contextList)
+             {
+                 var interpretator = new RuleInterpreter(context);
+                 await interpretator.InterpretRules();
+             }
         }
 
         private IEnumerable<Context> CreateContext(IEnumerable<Book> books)

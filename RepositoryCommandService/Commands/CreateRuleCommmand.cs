@@ -8,12 +8,12 @@ namespace RepositoryCommandService.Commands
 {
     public class CreateRuleCommmand : RuleCommand
     {
-        public CreateRuleCommmand(string name, string action, string condition)
+        public CreateRuleCommmand(string name, DateTime conditionDate, string conditionMessanger, string action)
         {
-            Name = Name;
-            ConditionDate = ConditionDate;
-            ConditionMessanger = ConditionMessanger;
-            Action = Action;
+            Name = name;
+            ConditionDate = conditionDate;
+            ConditionMessanger = conditionMessanger;
+            Action = action;
         }
     }
 }

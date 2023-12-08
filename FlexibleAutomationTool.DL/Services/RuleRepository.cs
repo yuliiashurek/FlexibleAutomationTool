@@ -40,7 +40,10 @@ namespace FlexibleAutomationTool.DL.Repository
 
         public IEnumerable<Rule> GetAll()
         {
+            lock (_context)
+            {
             return _context.Rules.ToList();
+            }
         }
 
         public void Save()

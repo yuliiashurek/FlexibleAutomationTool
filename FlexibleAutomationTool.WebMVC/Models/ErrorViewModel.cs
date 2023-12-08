@@ -1,4 +1,4 @@
-namespace FlexibleAutomationTool.Mvc.Models
+namespace FlexibleAutomationTool.WebMVC.Models
 {
     public class ErrorViewModel
     {

@@ -19,6 +19,10 @@ namespace NotificationFactoryService.Senders
 
         public void Send(IPrint printItem)
         {
+            if (string.IsNullOrEmpty(printItem.Print()))
+            {
+                return;
+            }
             _tgBotClient.SendTextMessageAsync(_recepient, printItem.Print());
             //return true;
         }

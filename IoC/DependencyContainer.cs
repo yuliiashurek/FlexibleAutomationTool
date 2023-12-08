@@ -1,7 +1,13 @@
 ﻿using AutomativeTaskNotificationFacadeService;
+using Bus;
+using FlexibleAutomationTool.DL.Context;
 using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.DL.Repository;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using RepositoryCommandService.CommandHandlers;
+using RepositoryCommandService.Commands;
+using RepositoryCommandService.Interface;
 
 namespace IoC
 {
@@ -11,7 +17,12 @@ namespace IoC
         {
             collections.AddScoped<IRepository<Book>, BookRepository>();
             collections.AddScoped<IRepository<Rule>, RuleRepository>();
+
+            collections.AddScoped<IRequestHandler<RuleCommand, bool>, RuleCommandHandler>();
+
             collections.AddScoped<ScheduleNotificationFacadeService>();
+
+            collections.AddScoped<IMediatorService, InMemoryBus>();
         }
     }
 }

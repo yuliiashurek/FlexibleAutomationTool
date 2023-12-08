@@ -20,35 +20,54 @@ namespace FlexibleAutomationTool.DL.Repository
         }
         public void Create(Book book)
         {
-            _context.Books.Add(book);
+            lock (_context)
+            {
+                _context.Books.Add(book);
+            }
         }
 
         public void Delete(int id)
         {
-            var book = _context.Books.FirstOrDefault<Book>(book => book.Id == id);
-            _context.Books.Remove(book);
+            lock (_context)
+            {
+                var book = _context.Books.FirstOrDefault<Book>(book => book.Id == id);
+                _context.Books.Remove(book);
+            }
         }
 
         public void Delete(Book item)
         {
-            _context.Books.Remove(item);
+            lock (_context)
+            {
+                _context.Books.Remove(item);
+            }
         }
 
         //todo add find by author and title
         public Book? Find(int id)
         {
-            return _context.Books.FirstOrDefault<Book>(book => book.Id == id);
+            lock (_context)
+            {
+                return _context.Books.FirstOrDefault<Book>(book => book.Id == id);
+            }
         }
 
         public IEnumerable<Book> GetAll()
         {
-            return _context.Books.ToList();
+            lock (_context)
+            {
+                return _context.Books.ToList();
+            }
         }
 
         public void Save()
         {
-            _context.SaveChanges();
+            lock (_context)
+            {
+                _context.SaveChanges();
+            }
         }
+
 
         public void Update(Book book)
         {
