@@ -16,6 +16,7 @@ namespace FlexibleAutomationTool.DL.Context
         public DbSet<Rule> Rules { get; set; }
         public DbSet<Script> Scripts { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<History> History { get; set; }
 
         //public FlexibleAutomationToolContext() => Database.EnsureCreated();
 
@@ -23,6 +24,7 @@ namespace FlexibleAutomationTool.DL.Context
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FlexibleAutomationToolDb;Trusted_Connection=True;");
         }
+
     }
 
 }

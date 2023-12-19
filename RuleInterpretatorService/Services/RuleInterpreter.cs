@@ -8,20 +8,22 @@ namespace RuleInterpretatorService.Services
         private readonly Context _context;
         public RuleInterpreter(Context context)
         {
-            _expressions = new List<IExpressions>() ;
-            _expressions.Add(new EmailExpression());
-            _expressions.Add(new TelegramExpression());
+            _expressions = new List<IExpressions>
+            {
+                new EmailExpression(),
+                new TelegramExpression()
+            };
             _context = context;
         }
 
-        public async Task<bool> InterpretRules()
+        public async Task<Context> InterpretRules()
         {
-            List<bool> allSent = new List<bool>();
             foreach(var expression in _expressions)
             {
-                allSent.Add(await expression.InterpratAsync(_context));
+                await expression.InterpratAsync(_context);
             }
-            return allSent.Any(p => p == true);
+            return _context;
+            //return allSent.Any(p => p == true);
         }
     }
 }

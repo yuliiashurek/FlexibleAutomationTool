@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuleInterpretatorService.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace RuleInterpretatorService.Interfaces
 {
     public interface IInterpretator
     {
-        public Task<bool> InterpretRules();
+        public Task<Context> InterpretRules();
     }
 }

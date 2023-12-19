@@ -38,15 +38,6 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
         {
             if (rule != null)
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user != null)
-                {
-                    string userId = user.Id;
-
-                    rule.UserId = new Guid(userId);
-                }
-                //var createRuleCommand = new CreateRuleCommmand(rule.Name, rule.ConditionDate, rule.ConditionMessanger, rule.Action);
-                //_mediator.SendCommand(createRuleCommand);
                 _rules.Create(rule);
                 _rules.Save();
                 return RedirectToAction("RuleList");

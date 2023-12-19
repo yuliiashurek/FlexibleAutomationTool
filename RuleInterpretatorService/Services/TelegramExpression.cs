@@ -10,7 +10,7 @@ namespace RuleInterpretatorService.Services
     {
         public async Task<bool> InterpratAsync(Context context)
         {
-            if(string.Equals(context.WhereToSend, "telegram") && context.DateAction < DateTime.Now.AddMinutes(3) && context.DateAction >= DateTime.Now.AddMinutes(-1))
+            if (string.Equals(context.Rule.ConditionMessanger, "telegram") && context.Rule.ConditionDate < DateTime.Now.AddMinutes(3) && context.Rule.ConditionDate >= DateTime.Now.AddMinutes(-1))
             {
                 TelegramActiveUsersService tgActiveUserService = new TelegramActiveUsersService();
                 if (tgActiveUserService.isActiveUsers().Result)

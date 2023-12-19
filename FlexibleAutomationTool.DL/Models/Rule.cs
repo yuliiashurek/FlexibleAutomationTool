@@ -12,5 +12,6 @@ namespace FlexibleAutomationTool.DL.Models
         public string Name { get; set; }
         public DateTime ConditionDate { get; set; }
         public string ConditionMessanger { get; set; }
+        public History RuleHistory { get; set; }
     }
 }

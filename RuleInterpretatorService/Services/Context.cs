@@ -1,13 +1,11 @@
 ﻿using FlexibleAutomationTool.DL.Models;
 using RequestCommunicationService.Services;
-using System.Data;
 
 namespace RuleInterpretatorService.Services
 {
     public class Context
     {
-        public DateTime DateAction { get; set; }
-        public string WhereToSend { get; set; }
+        public Rule Rule { get; set; }
         public IEnumerable<Book> Books { get; set; }
 
         //public DateTime Time { get; set; } = DateTime.Now.AddMinutes(-3);

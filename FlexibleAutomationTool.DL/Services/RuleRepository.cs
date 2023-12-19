@@ -57,6 +57,7 @@ namespace FlexibleAutomationTool.DL.Repository
         public void Update(Rule rule)
         {
             Delete(rule.Id);
+            //_context.Update(_context.History);
             Create(rule);
         }
     }

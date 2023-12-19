@@ -1,20 +1,19 @@
-﻿using FlexibleAutomationTool.DL.Models;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.DL.Repository;
 using RequestCommunicationService.Services;
 using RuleInterpretatorService.Services;
-using System.Timers;
-using Telegram.Bot.Requests;
 
 namespace AutomativeTaskNotificationFacadeService
 {
     public class ScheduleNotificationFacadeService
     {
         IRepository<Book> _bookRepository;
-        IRepository<Rule> _ruleRepository;
+        IRepository<FlexibleAutomationTool.DL.Models.Rule> _ruleRepository;
         private System.Timers.Timer _timer;
         private List<Book> _newBooks = new List<Book>();
 
-        public ScheduleNotificationFacadeService(IRepository<Book> books, IRepository<Rule> rules)
+        public ScheduleNotificationFacadeService(IRepository<Book> books, IRepository<FlexibleAutomationTool.DL.Models.Rule> rules)
         {
             var deltaTime = 20000;
             _bookRepository = books;
@@ -35,20 +34,25 @@ namespace AutomativeTaskNotificationFacadeService
              foreach (var context in contextList)
              {
                  var interpretator = new RuleInterpreter(context);
-                 if (await interpretator.InterpretRules())
+                 var outContext = await interpretator.InterpretRules();
+                 if (outContext.Rule.RuleHistory.Executed)
                  {
                      _newBooks.Clear();
-                 }
+                    _ruleRepository.Update(outContext.Rule);
+                }
              }
+             _ruleRepository.Save();
         }
 
         private IEnumerable<Context> CreateContext(IEnumerable<Book> books)
         {
             _newBooks.AddRange(books);
             var contextList = new List<Context>();
-            foreach (var rule in _ruleRepository.GetAll())
+            var filteredRules = _ruleRepository.GetAll().Where(rule => !rule.RuleHistory.Executed).ToList();
+
+            foreach (var rule in filteredRules)
             {
-                contextList.Add(new Context() { Books = _newBooks, DateAction = rule.ConditionDate, WhereToSend = rule.ConditionMessanger });
+                contextList.Add(new Context() { Books = _newBooks, Rule = rule });
             }
             return contextList;
         }
