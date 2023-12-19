@@ -4,6 +4,6 @@ namespace RuleInterpretatorService.Interfaces
 {
     public interface IExpressions
     {
-        public Task InterpratAsync(Context context);
+        public Task<bool> InterpratAsync(Context context);
     }
 }

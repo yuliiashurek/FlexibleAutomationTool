@@ -14,12 +14,14 @@ namespace RuleInterpretatorService.Services
             _context = context;
         }
 
-        public async Task InterpretRules()
+        public async Task<bool> InterpretRules()
         {
+            List<bool> allSent = new List<bool>();
             foreach(var expression in _expressions)
             {
-                await expression.InterpratAsync(_context);
+                allSent.Add(await expression.InterpratAsync(_context));
             }
+            return allSent.Any(p => p == true);
         }
     }
 }

@@ -23,7 +23,6 @@ namespace RepositoryCommandService.CommandHandlers
                     Name = request.Name,
                     ConditionDate = request.ConditionDate,
                     ConditionMessanger = request.ConditionMessanger,
-                    Action = request.Action,
                 };
 
                 _ruleRepository.Create(rule);

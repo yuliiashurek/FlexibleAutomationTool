@@ -3,6 +3,7 @@ using Bus;
 using FlexibleAutomationTool.DL.Context;
 using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.DL.Repository;
+using FlexibleAutomationTool.DL.Services;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using RepositoryCommandService.CommandHandlers;
@@ -17,8 +18,10 @@ namespace IoC
         {
             collections.AddScoped<IRepository<Book>, BookRepository>();
             collections.AddScoped<IRepository<Rule>, RuleRepository>();
+            collections.AddScoped<IRepository<User>, UserRepository>();
 
-            collections.AddScoped<IRequestHandler<RuleCommand, bool>, RuleCommandHandler>();
+
+            collections.AddScoped<IRequestHandler<CreateRuleCommmand, bool>, RuleCommandHandler>();
 
             collections.AddScoped<ScheduleNotificationFacadeService>();
 

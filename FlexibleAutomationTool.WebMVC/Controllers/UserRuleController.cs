@@ -2,6 +2,7 @@
 using FlexibleAutomationTool.DL.Repository;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RepositoryCommandService.Commands;
 using RepositoryCommandService.Interface;
@@ -13,11 +14,13 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
     {
         private readonly IRepository<Rule> _rules;
         private readonly IMediatorService _mediator;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserRuleController(IRepository<Rule> rules, IMediatorService mediator) 
+        public UserRuleController(IRepository<Rule> rules, IMediatorService mediator, UserManager<IdentityUser> userManager) 
         {
             _mediator = mediator;
             _rules = rules;
+            _userManager = userManager;
         } 
         public IActionResult Index()
         {
@@ -31,10 +34,17 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateRule(Rule rule)
+        public async Task<IActionResult> CreateRule(Rule rule)
         {
             if (rule != null)
             {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    string userId = user.Id;
+
+                    rule.UserId = new Guid(userId);
+                }
                 //var createRuleCommand = new CreateRuleCommmand(rule.Name, rule.ConditionDate, rule.ConditionMessanger, rule.Action);
                 //_mediator.SendCommand(createRuleCommand);
                 _rules.Create(rule);
@@ -97,9 +107,17 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
             return NotFound();
         }
 
-        public IActionResult RuleList()
+        public async Task<IActionResult> RuleList()
         {
-            return View(_rules.GetAll());
+            var user = await _userManager.GetUserAsync(User);
+            string userId = string.Empty;
+            if (user != null)
+            {
+                userId = user.Id;
+            }
+            return View(_rules.GetAll().Where(rule=> (rule.UserId.ToString() == userId)).ToList());
         }
+
+
     }
 }

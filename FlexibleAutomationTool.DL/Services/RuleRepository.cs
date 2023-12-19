@@ -48,7 +48,10 @@ namespace FlexibleAutomationTool.DL.Repository
 
         public void Save()
         {
-            _context.SaveChanges();
+            lock (_context)
+            {
+                _context.SaveChanges();
+            }
         }
 
         public void Update(Rule rule)

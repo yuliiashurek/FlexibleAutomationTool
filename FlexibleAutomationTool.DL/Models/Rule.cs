@@ -8,9 +8,9 @@ namespace FlexibleAutomationTool.DL.Models
 {
     public class Rule : Entity
     {
+        public Guid UserId { get; set; }
         public string Name { get; set; }
         public DateTime ConditionDate { get; set; }
         public string ConditionMessanger { get; set; }
-        public string Action { get; set; }
     }
 }

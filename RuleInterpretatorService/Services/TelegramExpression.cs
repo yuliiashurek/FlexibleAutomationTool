@@ -8,16 +8,18 @@ namespace RuleInterpretatorService.Services
 {
     public class TelegramExpression : IExpressions
     {
-        public async Task InterpratAsync(Context context)
+        public async Task<bool> InterpratAsync(Context context)
         {
-            if(string.Equals(context.WhereToSend, "telegram") && context.DateAction < DateTime.Now)
+            if(string.Equals(context.WhereToSend, "telegram") && context.DateAction < DateTime.Now.AddMinutes(3) && context.DateAction >= DateTime.Now.AddMinutes(-1))
             {
                 TelegramActiveUsersService tgActiveUserService = new TelegramActiveUsersService();
                 if (tgActiveUserService.isActiveUsers().Result)
                 {
                     SendTelegramNotificationAsync(context.Books);
+                    return true;
                 }
             }
+            return false;
         }
 
         private void SendTelegramNotificationAsync(IEnumerable<Book> books)

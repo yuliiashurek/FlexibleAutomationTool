@@ -12,6 +12,7 @@ namespace RequestCommunicationService.Services
             var botToken = "6902881493:AAFNsg53wistwqVRqZPLw1JNNA5nkHqbjoo";
             _chatId = -4003183963;
             _tgBotClient = new TelegramBotClient(botToken);
+            //_tgBotClient.setmy
         }
 
         public async Task<bool> isActiveUsers()

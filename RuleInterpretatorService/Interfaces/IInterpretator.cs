@@ -8,6 +8,6 @@ namespace RuleInterpretatorService.Interfaces
 {
     public interface IInterpretator
     {
-        public Task InterpretRules();
+        public Task<bool> InterpretRules();
     }
 }

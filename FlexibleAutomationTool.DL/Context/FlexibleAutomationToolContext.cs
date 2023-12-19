@@ -12,6 +12,7 @@ namespace FlexibleAutomationTool.DL.Context
     public class FlexibleAutomationToolContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Rule> Rules { get; set; }
         public DbSet<Script> Scripts { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
