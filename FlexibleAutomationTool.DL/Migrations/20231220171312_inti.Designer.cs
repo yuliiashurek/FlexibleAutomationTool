@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlexibleAutomationTool.DL.Migrations
 {
     [DbContext(typeof(FlexibleAutomationToolContext))]
-    [Migration("20231219174615_init")]
-    partial class init
+    [Migration("20231220171312_inti")]
+    partial class inti
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace FlexibleAutomationTool.DL.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Key", b =>
+            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.History", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,42 +59,18 @@ namespace FlexibleAutomationTool.DL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ScriptId")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("DateExecution")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Value")
-                        .IsRequired()
+                    b.Property<bool>("Executed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ScriptId");
-
-                    b.ToTable("Key");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Mouse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("ScriptId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("X")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Y")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ScriptId");
-
-                    b.ToTable("Mouse");
+                    b.ToTable("History");
                 });
 
             modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Rule", b =>
@@ -116,7 +92,7 @@ namespace FlexibleAutomationTool.DL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ScheduleId")
+                    b.Property<int>("RuleHistoryId")
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -124,49 +100,11 @@ namespace FlexibleAutomationTool.DL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ScheduleId");
+                    b.HasIndex("RuleHistoryId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Rules");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Schedule", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Schedules");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Script", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ScheduleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ScheduleId");
-
-                    b.ToTable("Scripts");
                 });
 
             modelBuilder.Entity("FlexibleAutomationTool.DL.Models.User", b =>
@@ -187,52 +125,21 @@ namespace FlexibleAutomationTool.DL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Key", b =>
-                {
-                    b.HasOne("FlexibleAutomationTool.DL.Models.Script", null)
-                        .WithMany("Keys")
-                        .HasForeignKey("ScriptId");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Mouse", b =>
-                {
-                    b.HasOne("FlexibleAutomationTool.DL.Models.Script", null)
-                        .WithMany("Mouses")
-                        .HasForeignKey("ScriptId");
-                });
-
             modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Rule", b =>
                 {
-                    b.HasOne("FlexibleAutomationTool.DL.Models.Schedule", null)
-                        .WithMany("Rules")
-                        .HasForeignKey("ScheduleId");
+                    b.HasOne("FlexibleAutomationTool.DL.Models.History", "RuleHistory")
+                        .WithMany()
+                        .HasForeignKey("RuleHistoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FlexibleAutomationTool.DL.Models.User", null)
                         .WithMany("UserRules")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Script", b =>
-                {
-                    b.HasOne("FlexibleAutomationTool.DL.Models.Schedule", null)
-                        .WithMany("Scripts")
-                        .HasForeignKey("ScheduleId");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Schedule", b =>
-                {
-                    b.Navigation("Rules");
-
-                    b.Navigation("Scripts");
-                });
-
-            modelBuilder.Entity("FlexibleAutomationTool.DL.Models.Script", b =>
-                {
-                    b.Navigation("Keys");
-
-                    b.Navigation("Mouses");
+                    b.Navigation("RuleHistory");
                 });
 
             modelBuilder.Entity("FlexibleAutomationTool.DL.Models.User", b =>

@@ -20,6 +20,8 @@ namespace IoC
             collections.AddScoped<IRepository<Rule>, RuleRepository>();
             collections.AddScoped<IRepository<User>, UserRepository>();
 
+            //collections.AddScoped<FlexibleAutomationToolContext>();
+
 
             collections.AddScoped<IRequestHandler<CreateRuleCommmand, bool>, RuleCommandHandler>();
 

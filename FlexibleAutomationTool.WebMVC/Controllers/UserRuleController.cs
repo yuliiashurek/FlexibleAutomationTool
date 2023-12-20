@@ -1,4 +1,5 @@
-﻿using FlexibleAutomationTool.DL.Models;
+﻿using AutomativeTaskNotificationFacadeService;
+using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.DL.Repository;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -15,12 +16,14 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
         private readonly IRepository<Rule> _rules;
         private readonly IMediatorService _mediator;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ScheduleNotificationFacadeService _facade;
 
-        public UserRuleController(IRepository<Rule> rules, IMediatorService mediator, UserManager<IdentityUser> userManager) 
+        public UserRuleController(IRepository<Rule> rules, IMediatorService mediator, UserManager<IdentityUser> userManager, ScheduleNotificationFacadeService facade) 
         {
             _mediator = mediator;
             _rules = rules;
             _userManager = userManager;
+            _facade = facade;
         } 
         public IActionResult Index()
         {
@@ -38,6 +41,14 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
         {
             if (rule != null)
             {
+                var user = await _userManager.GetUserAsync(User);
+                string userId = string.Empty;
+                if (user != null)
+                {
+                    userId = user.Id;
+                }
+                rule.RuleHistory = new();
+                rule.UserId = new Guid(userId);
                 _rules.Create(rule);
                 _rules.Save();
                 return RedirectToAction("RuleList");

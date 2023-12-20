@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using FlexibleAutomationTool.DL.Context;
 using FlexibleAutomationTool.DL.Models;
 using FlexibleAutomationTool.DL.Repository;
 using RequestCommunicationService.Services;
@@ -12,6 +13,7 @@ namespace AutomativeTaskNotificationFacadeService
         IRepository<FlexibleAutomationTool.DL.Models.Rule> _ruleRepository;
         private System.Timers.Timer _timer;
         private List<Book> _newBooks = new List<Book>();
+        private FlexibleAutomationToolContext _context;
 
         public ScheduleNotificationFacadeService(IRepository<Book> books, IRepository<FlexibleAutomationTool.DL.Models.Rule> rules)
         {
@@ -19,6 +21,7 @@ namespace AutomativeTaskNotificationFacadeService
             _bookRepository = books;
             _ruleRepository = rules;
             _timer = new System.Timers.Timer();
+            
             _timer.Elapsed += async (sender, e) =>
             {
                 await TimerTaskAsync();
@@ -35,7 +38,7 @@ namespace AutomativeTaskNotificationFacadeService
              {
                  var interpretator = new RuleInterpreter(context);
                  var outContext = await interpretator.InterpretRules();
-                 if (outContext.Rule.RuleHistory.Executed)
+                 if (false)//outContext.Rule.RuleHistory.Executed)
                  {
                      _newBooks.Clear();
                     _ruleRepository.Update(outContext.Rule);
@@ -48,7 +51,7 @@ namespace AutomativeTaskNotificationFacadeService
         {
             _newBooks.AddRange(books);
             var contextList = new List<Context>();
-            var filteredRules = _ruleRepository.GetAll().Where(rule => !rule.RuleHistory.Executed).ToList();
+            var filteredRules = _ruleRepository.GetAll();//.Where(rule => !rule.RuleHistory.Executed).ToList();
 
             foreach (var rule in filteredRules)
             {

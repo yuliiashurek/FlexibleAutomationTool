@@ -28,8 +28,7 @@
                 <input asp-for="ConditionMessanger" class="form-control" />
                 <span asp-validation-for="ConditionMessanger" class="text-danger"></span>
             </div>
-            @Html.HiddenFor(m=> m.Id)
-            @Html.HiddenFor(m=> m.RuleHistory.Id)
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
