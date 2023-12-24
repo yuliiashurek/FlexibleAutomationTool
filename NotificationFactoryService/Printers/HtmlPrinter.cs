@@ -15,7 +15,7 @@ namespace NotificationFactoryService.Printers
 
             foreach (var book in _books)
             {
-                htmlBuilder.AppendLine($"<h2>{book.Title} by {book.Author}</h2>");
+                htmlBuilder.AppendLine($"<h4>NEW book: {book.Title} by {book.Author}</h4>");
                 htmlBuilder.AppendLine();
             }
 

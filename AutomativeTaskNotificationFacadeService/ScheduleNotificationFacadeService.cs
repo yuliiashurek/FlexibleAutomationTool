@@ -13,13 +13,13 @@ namespace AutomativeTaskNotificationFacadeService
         IRepository<FlexibleAutomationTool.DL.Models.Rule> _ruleRepository;
         private System.Timers.Timer _timer;
         private List<Book> _newBooks = new List<Book>();
-        private FlexibleAutomationToolContext _context;
 
-        public ScheduleNotificationFacadeService(IRepository<Book> books, IRepository<FlexibleAutomationTool.DL.Models.Rule> rules)
+        public ScheduleNotificationFacadeService()
         {
             var deltaTime = 20000;
-            _bookRepository = books;
-            _ruleRepository = rules;
+            FlexibleAutomationToolContext context = new FlexibleAutomationToolContext();
+            _bookRepository = new BookRepository(context);
+            _ruleRepository = new RuleRepository(context); ;
             _timer = new System.Timers.Timer();
             
             _timer.Elapsed += async (sender, e) =>
@@ -32,26 +32,29 @@ namespace AutomativeTaskNotificationFacadeService
 
         public async Task TimerTaskAsync()
         {
-             ParseHtmlService parser = new ParseHtmlService(_bookRepository);
-             var contextList = CreateContext(await parser.ParseHtmlToItem());
+            //ParseHtmlService parser = new ParseHtmlService(_bookRepository);
+            var contextList = CreateContext(_bookRepository.GetAll());//await parser.ParseHtmlToItem());
              foreach (var context in contextList)
              {
                  var interpretator = new RuleInterpreter(context);
                  var outContext = await interpretator.InterpretRules();
-                 if (false)//outContext.Rule.RuleHistory.Executed)
+                 if (outContext.Rule.RuleHistory.Executed)
                  {
-                     _newBooks.Clear();
+                     //_newBooks.Clear();
+
                     _ruleRepository.Update(outContext.Rule);
                 }
              }
              _ruleRepository.Save();
+
         }
 
         private IEnumerable<Context> CreateContext(IEnumerable<Book> books)
         {
             _newBooks.AddRange(books);
             var contextList = new List<Context>();
-            var filteredRules = _ruleRepository.GetAll();//.Where(rule => !rule.RuleHistory.Executed).ToList();
+
+            var filteredRules = _ruleRepository.GetAll().Where(rule => !rule.RuleHistory.Executed).ToList();
 
             foreach (var rule in filteredRules)
             {

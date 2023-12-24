@@ -11,7 +11,7 @@ namespace FlexibleAutomationTool.DL.Models
     {
         public Guid Id { get; set; }
         public string Email { get; set; }   
-        public List<Rule> UserRules { get; set; }
+        public virtual List<Rule> UserRules { get; set; }
         public long TelegramId {  get; set; }
     }
 }

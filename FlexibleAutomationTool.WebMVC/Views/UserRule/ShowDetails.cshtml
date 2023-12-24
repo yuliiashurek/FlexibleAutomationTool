@@ -1,0 +1,68 @@
+﻿@model FlexibleAutomationTool.DL.Models.History
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<meta charset="UTF-8">
+<h1>Details</h1>
+<style>
+    .message-value {
+        white-space: pre-line;
+    }
+</style>
+<h4>History</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <p class="execution-label">Executed</p>
+                    <p class="execution-value">@Model.Executed</p>
+                </div>
+                <div class="col">
+                    <p class="execution-label">Date of Execution</p>
+                    <p class="execution-value">@Model.DateExecution</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <p class="message-label">Message</p>
+                    @{
+                        string message = Model.Message;
+                    }
+                    @if (message != null)
+                    {
+                        if (message.Contains("<") && message.Contains(">"))
+                        {
+                            <div class="message-value">
+                                @Html.Raw(message)
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="message-value">@message</p>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="RuleList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

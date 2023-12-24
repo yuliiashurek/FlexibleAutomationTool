@@ -11,7 +11,7 @@ namespace NotificationFactoryService.Senders
 
         public TelegramSender(string recipient = "451626433") 
         {
-            _recepient = 451626433;
+            _recepient = Convert.ToInt64(recipient);
             var botToken = "6902881493:AAFNsg53wistwqVRqZPLw1JNNA5nkHqbjoo";
             //_chatId = -4003183963;
             _tgBotClient = new TelegramBotClient(botToken);
@@ -23,6 +23,7 @@ namespace NotificationFactoryService.Senders
             {
                 return;
             }
+            //_recepient = 451626433;
             _tgBotClient.SendTextMessageAsync(_recepient, printItem.Print());
             //return true;
         }

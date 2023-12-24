@@ -25,7 +25,7 @@ namespace FlexibleAutomationTool.WebMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<FlexibleAutomationToolContext>(ServiceLifetime.Singleton);
+            //builder.Services.AddDbContext<FlexibleAutomationToolContext>(ServiceLifetime.Singleton);
             builder.Services.AddMediatR(conf => conf.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 

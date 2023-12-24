@@ -28,7 +28,7 @@ namespace NotificationFactoryService.Senders
                 From = new MailAddress(_senderEmail),
                 Subject = "CheckOut New Books",
                 Body = printItem.Print(),
-                IsBodyHtml = true, // Set this to true if your email contains HTML content
+                IsBodyHtml = true,
             };
 
             mail.To.Add(new MailAddress(_recepient));
@@ -43,12 +43,10 @@ namespace NotificationFactoryService.Senders
             try {
                 smtpClient.Send(mail);
                 Console.WriteLine("Email sent successfully.");
-                //return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error sending email: " + ex.Message);
-                //return false;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using FlexibleAutomationTool.DL.Context;
 using FlexibleAutomationTool.DL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace FlexibleAutomationTool.DL.Repository
         {
             lock (_context)
             {
-            return _context.Rules.ToList();
+            return _context.Rules.Include(r => r.RuleHistory).ToList();
             }
         }
 

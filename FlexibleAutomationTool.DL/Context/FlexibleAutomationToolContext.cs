@@ -20,7 +20,9 @@ namespace FlexibleAutomationTool.DL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FlexibleAutomationToolDb;Trusted_Connection=True;");
+            optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FlexibleAutomationToolDb;Trusted_Connection=True;");
         }
 
     }

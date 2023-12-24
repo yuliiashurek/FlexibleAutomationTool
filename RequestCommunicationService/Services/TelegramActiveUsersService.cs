@@ -6,18 +6,16 @@ namespace RequestCommunicationService.Services
     public class TelegramActiveUsersService
     {
         private TelegramBotClient _tgBotClient;
-        private long _chatId;
         public TelegramActiveUsersService()
         {
             var botToken = "6902881493:AAFNsg53wistwqVRqZPLw1JNNA5nkHqbjoo";
-            _chatId = -4003183963;
             _tgBotClient = new TelegramBotClient(botToken);
-            //_tgBotClient.setmy
         }
 
-        public async Task<bool> isActiveUsers()
+        public async Task<bool> isActiveUsers(long tgId)
         {
-            Chat chat = await _tgBotClient.GetChatAsync(451626433);
+            //451626433
+            Chat chat = await _tgBotClient.GetChatAsync(tgId);
             var a = chat.ActiveUsernames.FirstOrDefault();
             if (a != null)
             {

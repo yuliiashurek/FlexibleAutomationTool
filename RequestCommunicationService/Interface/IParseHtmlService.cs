@@ -6,7 +6,6 @@ namespace RequestCommunicationService.Interface
     {
         public delegate void newBookDelegate(Book book);
         public Task<List<Book>> ParseHtmlToItem(HtmlTagsClass model = null);
-        //public bool IsInRepository(T item);
         public void AddItem(T item);
     }
 }

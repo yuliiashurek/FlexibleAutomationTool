@@ -16,11 +16,6 @@ namespace RequestCommunicationService.Services
             _books = books;
         }
 
-        //public bool IsInRepository(Book book)
-        //{
-        //    return _books.Find(book.Id) != null;
-        //}
-
         public void AddItem(Book book)
         {
             _books.Create(book);

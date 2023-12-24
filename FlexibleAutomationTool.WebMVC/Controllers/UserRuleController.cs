@@ -76,6 +76,10 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
             if (rule != null)
             {
                 _rules.Update(rule);
+                if (rule.RuleHistory.Executed)
+                {
+                    rule.RuleHistory = new History();
+                }
                 _rules.Save();
                 return RedirectToAction("RuleList");
             }
@@ -120,6 +124,22 @@ namespace FlexibleAutomationTool.WebMVC.Controllers
             return View(_rules.GetAll().Where(rule=> (rule.UserId.ToString() == userId)).ToList());
         }
 
+        public IActionResult ShowDetails(int id)
+        {
+            if (id > 0)
+            {
+                var rule = _rules.Find(id);
+                if(rule != null)
+                {
+                    return View(rule.RuleHistory);
+                }
+                return NotFound();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
     }
 }

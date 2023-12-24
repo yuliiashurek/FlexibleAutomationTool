@@ -13,19 +13,23 @@ namespace RuleInterpretatorService.Services
             if (string.Equals(context.Rule.ConditionMessanger, "telegram") && context.Rule.ConditionDate < DateTime.Now.AddMinutes(3) && context.Rule.ConditionDate >= DateTime.Now.AddMinutes(-1))
             {
                 TelegramActiveUsersService tgActiveUserService = new TelegramActiveUsersService();
-                if (tgActiveUserService.isActiveUsers().Result)
+                if (tgActiveUserService.isActiveUsers(context.Rule.User.TelegramId).Result)
                 {
-                    SendTelegramNotificationAsync(context.Books);
+                    SendTelegramNotificationAsync(context.Books, context.Rule.User.TelegramId.ToString(), out var message);
+                    context.Rule.RuleHistory.Executed = true;
+                    context.Rule.RuleHistory.DateExecution = DateTime.Now;
+                    context.Rule.RuleHistory.Message = message;
                     return true;
                 }
             }
             return false;
         }
 
-        private void SendTelegramNotificationAsync(IEnumerable<Book> books)
+        private void SendTelegramNotificationAsync(IEnumerable<Book> books, string recepient, out string message)
         {
-            TaskAbstract taskFactory = new TextTelegramFactory();
+            TaskAbstract taskFactory = new TextTelegramFactory(recepient);
             var printer = taskFactory.CreatePrinter(books);
+            message = printer.Print();
             var sender = taskFactory.CreateSender();
             sender.Send(printer);
         }

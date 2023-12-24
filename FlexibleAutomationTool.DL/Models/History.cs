@@ -9,7 +9,7 @@ namespace FlexibleAutomationTool.DL.Models
     public class History
     {
         public int Id {  get; set; }
-        public string? Message {  get; set; }
+        public string? Message { get; set; }
         public DateTime? DateExecution { get; set; }
         public bool Executed { get; set; } = false;
     }
